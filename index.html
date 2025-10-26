@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="static/styles.css"> 
+</head>
+<body>
+    <div class="app">
+        <div class="calc">
+            <div class="display">
+                <input type="text" id="expr" value="" placeholder="Enter expression..." autofocus>
+                <div class="result" id="result">= 0</div>
+            </div>
+            
+            <div class="keys">
+                <button class="danger" data-action="clear">AC</button>
+                <button class="danger" data-action="del">DEL</button>
+                <button class="op" data-insert="(">(</button>
+                <button class="op" data-insert=")">)</button>
+                
+                <button class="op" data-func="sin(">sin</button>
+                <button data-insert="7">7</button>
+                <button data-insert="8">8</button>
+                <button data-insert="9">9</button>
+                
+                <button class="op" data-func="cos(">cos</button>
+                <button data-insert="4">4</button>
+                <button data-insert="5">5</button>
+                <button data-insert="6">6</button>
+                
+                <button class="op" data-func="tan(">tan</button>
+                <button data-insert="1">1</button>
+                <button data-insert="2">2</button>
+                <button data-insert="3">3</button>
+
+                <button class="op" data-insert="/">÷</button>
+                <button class="op" data-insert="*">×</button>
+                <button class="op" data-insert="-">−</button>
+                <button class="op" data-insert="+">+</button>
+
+                <button class="op" data-insert="pi">π</button>
+                <button data-insert="0">0</button>
+                <button data-insert=".">.</button>
+                <button class="op" data-insert="%">%</button>
+                
+                <button class="equals wide" id="equals">=</button> 
+            </div>
+        </div>
+        <div class="foot">
+            Scientific Calculator using Flask & Vanilla JS
+        </div>
+    </div>
+
+    <script src="static/main.js"></script>
+</body>
+</html>
