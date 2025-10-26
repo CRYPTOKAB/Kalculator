@@ -67,7 +67,7 @@ async function calculate() {
                 const data = await res.json();
                 $result.textContent = "Error: " + (data.error || "Server error (" + res.status + ")");
             } catch (e) {
-                // Provides a helpful warning, especially on GitHub Pages where app.py isn't running
+                // Warning added for deployment on static hosts like GitHub Pages
                 $result.textContent = "HTTP Error: " + res.status + " (Is the Python server running?)";
             }
             return;
@@ -83,7 +83,7 @@ async function calculate() {
         } 
 
     } catch (e) { 
-        // This block handles network failures (like when the server is down locally)
+        // This block handles network failures (server not running locally)
         console.error("Fetch failed (Network error):", e);
         $result.textContent = "Network error (Is the Python server running?)"; 
     } 
@@ -91,13 +91,14 @@ async function calculate() {
 
 // --- Event Listeners ---
 
-// FIX: Prevent buttons from stealing focus on mousedown/click
+// 🎯 THE FIX FOR INPUT FOCUS 🎯
 document.querySelectorAll(".keys button").forEach(btn => {
     btn.addEventListener("mousedown", (e) => {
-        // This stops the button from receiving focus when clicked
+        // Prevents the button from receiving focus when clicked, ensuring the $expr input stays focused.
         e.preventDefault();
     });
 });
+// 🎯 END FOCUS FIX 🎯
 
 // Insert buttons
 document.querySelectorAll("button[data-insert]").forEach(btn => { 
